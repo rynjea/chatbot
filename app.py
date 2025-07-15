@@ -139,7 +139,7 @@ st.markdown("""
 st.markdown("""
 <div class="step-card">
     <span class="step-number-circle">1</span> <span class="step-title">Temukan Bot Kami</span>
-    <p <code>">Buka aplikasi Telegram Anda dan cari <a href="{TELEGRAM_BOT_LINK}" target="_blank" style="color: #3498db;">@duitect_bot</a> di kolom pencarian.</code></p>
+    <p><code>">Buka aplikasi Telegram Anda dan cari <a href="{TELEGRAM_BOT_LINK}" target="_blank" style="color: #3498db;">@duitect_bot</a> di kolom pencarian.</code></p>
 </div>
 <div class="step-card">
     <span class="step-number-circle">2</span> <span class="step-title">Mulai Percakapan</span>
