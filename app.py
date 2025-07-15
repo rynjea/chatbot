@@ -5,19 +5,26 @@ import os
 st.set_page_config(
     page_title="Chatbot Pengelola Keuangan Pribadi",
     page_icon="💰",
-    layout="centered", # Bisa "wide" untuk layout lebih lebar
-    initial_sidebar_state="collapsed" # Opsional, jika tidak ada sidebar
+    layout="wide",  # UBAH INI: Menggunakan layout "wide" untuk tampilan lebar
+    initial_sidebar_state="collapsed"
 )
 
 # --- Informasi Bot Anda ---
 # Ganti dengan username bot Telegram Anda yang sebenarnya
-TELEGRAM_BOT_USERNAME = "duitect_bot" 
+TELEGRAM_BOT_USERNAME = "duitect_bot" # Menggunakan username dari gambar Anda
 TELEGRAM_BOT_LINK = f"https://t.me/duitect_bot"
 
-# --- Bagian Header ---
+# --- CSS Kustom ---
 st.markdown(
     """
     <style>
+    /* Mengatasi Streamlit default padding untuk layout wide */
+    .st-emotion-cache-z5fcl4 { /* Ini adalah class name untuk Streamlit main container */
+        padding-left: 2rem; /* Sesuaikan sesuai keinginan, misalnya 2rem = 32px */
+        padding-right: 2rem; /* Sesuaikan sesuai keinginan */
+    }
+
+    /* Styles untuk bagian Header */
     .header-section {
         background-color: #3498db; /* Biru cerah */
         color: white;
@@ -59,11 +66,57 @@ st.markdown(
         font-size: 0.9em;
         opacity: 0.8;
     }
+
+    /* Styles untuk bagian Fitur Utama */
+    .st-emotion-cache-1iy5a4c { /* Class name untuk subheader di Streamlit */
+        color: #3498db; /* Ubah warna subheader di bagian fitur */
+    }
+
+    /* Styles untuk bagian Cara Menggunakan */
+    .step-card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .step-number-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #3498db;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-right: 15px;
+    }
+    .step-title {
+        display: inline-block;
+        font-size: 1.3em;
+        color: #2c3e50; /* Warna judul langkah */
+        vertical-align: middle;
+    }
+    /* Memperbaiki warna teks untuk username bot di bagian cara menggunakan */
+    .step-card a {
+        color: #3498db !important; /* Warna biru untuk link username bot */
+    }
+    .step-card p {
+        color: #333 !important; /* Memastikan teks paragraf terlihat */
+    }
+
+    /* Styles untuk FAQ */
+    .st-emotion-cache-1ecpmsa p { /* Class untuk paragraf di dalam expander */
+        color: #333 !important; /* Memastikan teks FAQ terlihat */
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
+# --- Bagian Header ---
 st.markdown(f"""
 <div class="header-section">
     <h1>💰 Asisten Keuangan Pribadi Anda di Telegram!</h1>
@@ -87,11 +140,9 @@ with col1:
 with col2:
     st.subheader("Scan Struk Otomatis")
     st.write("Cukup foto struk belanja Anda, kirim ke bot, dan biarkan kami yang mencatatnya!")
-    # Placeholder untuk gambar struk. Anda perlu menyimpan gambar ini di folder yang sama
-    # dengan app.py di GitHub/Replit, lalu ganti 'path/to/gambar_contoh_struk_upload.png'
-    # dengan nama file gambar Anda.
-    # Contoh: st.image("contoh_struk_upload.png", caption="Contoh Unggah Struk", use_column_width=True)
-    st.image("6303195331487189232.jpg", caption="Contoh Unggah Struk", use_column_width=True)
+    # MENGATASI DEPRECATION WARNING: Mengganti use_column_width dengan use_container_width
+    # Ganti "nama_file_gambar_struk_anda.png" dengan nama file gambar Anda yang sebenarnya
+    st.image("6303195331487189232.jpg", caption="Contoh Unggah Struk", use_container_width=True)
     st.markdown("Kirim gambar ini dengan *caption*: `catat struk`")
 
 
@@ -105,53 +156,24 @@ with col3:
 # --- Bagian Cara Menggunakan ---
 st.header("💡 Bagaimana Cara Menggunakan?")
 
-st.markdown("""
-<style>
-.step-card {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-.step-number-circle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-right: 15px;
-}
-.step-title {
-    display: inline-block;
-    font-size: 1.3em;
-    color: #2c3e50;
-    vertical-align: middle;
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
+# Menggunakan st.markdown untuk custom HTML tetap dipertahankan untuk styling card
+# MEMPERBAIKI WARNA TEKS UNTUK USERNAME BOT DI SINI
+st.markdown(f"""
 <div class="step-card">
     <span class="step-number-circle">1</span> <span class="step-title">Temukan Bot Kami</span>
-    <p>Buka aplikasi Telegram Anda dan cari **<a href="https://t.me/NamaBotAnda_bot" target="_blank">@{TELEGRAM_BOT_USERNAME}</a>** di kolom pencarian.</p>
+    <p style="color: #333;">Buka aplikasi Telegram Anda dan cari **<a href="{TELEGRAM_BOT_LINK}" target="_blank" style="color: #3498db;">@{TELEGRAM_BOT_USERNAME}</a>** di kolom pencarian.</p>
 </div>
 <div class="step-card">
     <span class="step-number-circle">2</span> <span class="step-title">Mulai Percakapan</span>
-    <p>Klik tombol "Start" atau ketik <code>/start</code> atau <code>halo</code> untuk memulai interaksi pertama Anda dengan bot.</p>
+    <p style="color: #333;">Klik tombol "Start" atau ketik <code>/start</code> atau <code>halo</code> untuk memulai interaksi pertama Anda dengan bot.</p>
 </div>
 <div class="step-card">
     <span class="step-number-circle">3</span> <span class="step-title">Catat Pengeluaran</span>
-    <p>Ketikkan pengeluaran Anda seperti contoh: <code>beli makan siang 30000</code>. Atau kirimkan foto struk belanja Anda dengan <i>caption</i> <b>"catat struk"</b>.</p>
+    <p style="color: #333;">Ketikkan pengeluaran Anda seperti contoh: <code>beli makan siang 30000</code>. Atau kirimkan foto struk belanja Anda dengan <i>caption</i> <b>"catat struk"</b>.</p>
 </div>
 <div class="step-card">
     <span class="step-number-circle">4</span> <span class="step-title">Dapatkan Laporan</span>
-    <p>Tanyakan laporan keuangan yang Anda inginkan, contoh: <code>laporan harian</code> atau <code>kategori bulan</code>.</p>
+    <p style="color: #333;">Tanyakan laporan keuangan yang Anda inginkan, contoh: <code>laporan harian</code> atau <code>kategori bulan</code>.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -170,7 +192,7 @@ with st.expander("Apa yang harus saya lakukan jika bot tidak merespons?"):
 
 
 # --- Bagian Footer ---
-st.markdown("---") # Garis pembatas
+st.markdown("---")
 st.markdown(
     """
     <div style="text-align: center; padding: 20px; font-size: 0.9em; color: #555;">
