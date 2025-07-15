@@ -139,11 +139,11 @@ st.markdown("""
 st.markdown("""
 <div class="step-card">
     <span class="step-number-circle">1</span> <span class="step-title">Temukan Bot Kami</span>
-    <p style="color: #333;">Buka aplikasi Telegram Anda dan cari *<a href="{TELEGRAM_BOT_LINK}" target="_blank" style="color: #3498db;">@{TELEGRAM_BOT_USERNAME}</a>* di kolom pencarian.</p>
+    <p <code>">Buka aplikasi Telegram Anda dan cari <a href="{TELEGRAM_BOT_LINK}" target="_blank" style="color: #3498db;">@duitect_bot</a> di kolom pencarian.</code></p>
 </div>
 <div class="step-card">
     <span class="step-number-circle">2</span> <span class="step-title">Mulai Percakapan</span>
-    <p>Klik tombol "Start" atau ketik <code>/start</code> atau <code>halo</code> untuk memulai interaksi pertama Anda dengan bot.</p>
+    <p>Ketik <code>hi</code> atau <code>halo</code> untuk memulai interaksi pertama Anda dengan bot.</p>
 </div>
 <div class="step-card">
     <span class="step-number-circle">3</span> <span class="step-title">Catat Pengeluaran</span>
