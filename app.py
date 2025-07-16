@@ -10,8 +10,8 @@ st.set_page_config(
 )
 
 # --- Informasi Bot Anda ---
-TELEGRAM_BOT_USERNAME = "dutect_bot"
-TELEGRAM_BOT_LINK = f"https://t.me/{TELEGRAM_BOT_USERNAME}"
+TELEGRAM_BOT_USERNAME = "duitect_bot"
+TELEGRAM_BOT_LINK = f"https://t.me/duitect_bot"
 
 # --- CSS Kustom Global dan Perbaikan Tampilan ---
 st.markdown(
@@ -217,7 +217,7 @@ with col2:
     # REVISI PENTING: Ganti placeholder ini dengan path relatif ke gambar Anda
     # yang sudah DIEDIT (dipotong & diresize agar tidak terlalu besar) dan diupload ke GitHub.
     # Contoh: st.image("nama_file_gambar_struk_anda.png", caption="Contoh Unggah Struk", use_container_width=True)
-    st.image("https://via.placeholder.com/400x250?text=Gambar+Contoh+Struk+Anda", caption="Contoh Unggah Struk (Ganti Gambar Ini!)", use_container_width=True)
+    st.image("6303195331487189232.jpg", caption="Contoh Unggah Struk", use_container_width=True)
     st.markdown("Kirim gambar ini dengan *caption*: `catat struk`")
 
 
@@ -225,7 +225,7 @@ with col3:
     st.subheader("Laporan Instan")
     st.write("Dapatkan ringkasan pengeluaran harian, mingguan, bulanan, atau per kategori kapan saja.")
     st.code("laporan bulanan", language="python")
-    st.code("kategori hari", language="python")
+    st.code("laporan belanja", language="python")
 
 
 # --- Bagian Cara Menggunakan ---
@@ -253,7 +253,7 @@ st.markdown("""
 <div class="step-card">
     <span class="step-number-circle">3</span> <span class="step-title">Catat Pengeluaran</span>
     <code style="display: block; margin-top: 15px; margin-bottom: 5px;">beli makan siang 30000</code>
-    <code style="display: block; margin-top: 10px; margin-bottom: 5px;">Kirimkan foto struk belanja Anda dengan <i>caption</i> <b>"catat struk"</b></code>
+    <code style="display: block; margin-top: 10px; margin-bottom: 5px;">kirimkan foto struk belanja dengan <i>caption</i> <b>"catat struk"</b></code>
 </div>
 """, unsafe_allow_html=True)
 
