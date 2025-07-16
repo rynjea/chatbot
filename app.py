@@ -10,8 +10,8 @@ st.set_page_config(
 )
 
 # --- Informasi Bot Anda ---
-TELEGRAM_BOT_USERNAME = "duitect_bot"
-TELEGRAM_BOT_LINK = f"https://t.me/duitect_bot"
+TELEGRAM_BOT_USERNAME = "dutect_bot"
+TELEGRAM_BOT_LINK = f"https://t.me/{TELEGRAM_BOT_USERNAME}"
 
 # --- CSS Kustom Global dan Perbaikan Tampilan ---
 st.markdown(
@@ -126,20 +126,20 @@ st.markdown(
     .step-title {
         display: inline-block;
         font-size: 1.3em;
-        color: #2c3e50; /* Judul langkah hitam */
+        color: var(--text-color);
         vertical-align: middle;
     }
 
-    /* KUNCI PERBAIKAN UNTUK KOTAK GELAP DAN TULISAN PUTIH PADA LANGKAH-LANGKAH */
+    /* KUNCI PERBAIKAN UNTUK KOTAK HITAM DAN TULISAN PUTIH PADA LANGKAH-LANGKAH */
     .step-card code { /* Menargetkan elemen <code> di dalam step-card */
         display: block; /* Agar setiap contoh pada baris terpisah */
         margin-top: 10px; /* Jarak dari judul langkah atau code sebelumnya */
         margin-bottom: 5px; /* Jarak bawah antar kotak kode (jika ada lebih dari satu) */
         padding: 15px 20px; /* Padding di dalam kotak */
         border-radius: 4px;
-        background-color: #2e303b !important; /* Warna background abu-abu gelap */
+        background-color: #000000 !important; /* GANTI KE HITAM */
         color: white !important; /* Teks putih */
-        border: 1px solid #4a4d5b !important; /* Border abu-abu gelap */
+        border: 1px solid #1a1a1a !important; /* Border abu-abu sangat gelap (mendekati hitam) */
         font-family: monospace;
         font-size: 1em;
         white-space: pre-wrap; /* Memastikan teks wrap jika panjang */
@@ -211,7 +211,9 @@ with col1:
 with col2:
     st.subheader("Scan Struk Otomatis")
     st.write("Cukup foto struk belanja Anda, kirim ke bot, dan biarkan kami yang mencatatnya!")
-    # Ganti placeholder ini dengan path relatif ke gambar Anda
+    # REVISI PENTING: Ganti placeholder ini dengan path relatif ke gambar Anda
+    # yang sudah DIEDIT (dipotong & diresize agar tidak terlalu besar) dan diupload ke GitHub.
+    # Contoh: st.image("nama_file_gambar_struk_anda.png", caption="Contoh Unggah Struk", use_container_width=True)
     st.image("https://via.placeholder.com/400x250?text=Gambar+Contoh+Struk+Anda", caption="Contoh Unggah Struk (Ganti Gambar Ini!)", use_container_width=True)
     st.markdown("Kirim gambar ini dengan *caption*: `catat struk`")
 
@@ -248,7 +250,7 @@ st.markdown("""
 <div class="step-card">
     <span class="step-number-circle">3</span> <span class="step-title">Catat Pengeluaran</span>
     <code style="display: block; margin-top: 15px; margin-bottom: 5px;">beli makan siang 30000</code>
-    <code style="display: block; margin-top: 10px; margin-bottom: 5px;">Kirimkan foto struk belanja Anda dengan <i>caption</i> <b>"catat struk"</b></code>
+    <code style="display: block; margin-top: 10px; margin-bottom: 5px;">kirimkan foto struk belanja dengan <i>caption</i> <b>"catat struk"</b></code>
 </div>
 """, unsafe_allow_html=True)
 
