@@ -24,7 +24,11 @@ st.markdown(
     }
 
     /* Memastikan warna teks terlihat di dark/light mode untuk elemen standar */
-    h1, h2, h3, h4, h5, h6, p, li, div, span {
+    /* Aturan umum, akan di-override oleh aturan yang lebih spesifik jika ada */
+    body, p, li, div, span, a {
+        color: var(--text-color);
+    }
+    h1, h2, h3, h4, h5, h6 {
         color: var(--text-color);
     }
 
@@ -103,12 +107,11 @@ st.markdown(
 
     /* Styles untuk bagian Cara Menggunakan */
     .step-card {
-        background-color: #f0f2f6; /* Latar belakang card putih-abu untuk light mode */
-        /* background-color: var(--secondary-background-color); UNCOMMENT INI JIKA MAU SESUAI TEMA OTOMATIS */
+        background-color: #f0f2f6; /* Latar belakang card putih-abu (seperti gambar) */
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        margin-bottom: 20px; /* Jarak antar step card */
+        margin-bottom: 20px;
     }
     .step-number-circle {
         display: inline-flex;
@@ -126,7 +129,7 @@ st.markdown(
     .step-title {
         display: inline-block;
         font-size: 1.3em;
-        color: var(--text-color);
+        color: #2c3e50; /* KUNCI PERBAIKAN: Warna gelap eksplisit agar terlihat di background putih-abu */
         vertical-align: middle;
     }
 
@@ -137,8 +140,8 @@ st.markdown(
         margin-bottom: 5px; /* Jarak bawah antar kotak kode (jika ada lebih dari satu) */
         padding: 15px 20px; /* Padding di dalam kotak */
         border-radius: 4px;
-        background-color: #000000 !important; /* GANTI KE HITAM */
-        color: white !important; /* Teks putih */
+        background-color: #000000 !important; /* Latar belakang HITAM */
+        color: white !important; /* Teks PUTIH */
         border: 1px solid #1a1a1a !important; /* Border abu-abu sangat gelap (mendekati hitam) */
         font-family: monospace;
         font-size: 1em;
@@ -250,7 +253,7 @@ st.markdown("""
 <div class="step-card">
     <span class="step-number-circle">3</span> <span class="step-title">Catat Pengeluaran</span>
     <code style="display: block; margin-top: 15px; margin-bottom: 5px;">beli makan siang 30000</code>
-    <code style="display: block; margin-top: 10px; margin-bottom: 5px;">kirimkan foto struk belanja dengan <i>caption</i> <b>"catat struk"</b></code>
+    <code style="display: block; margin-top: 10px; margin-bottom: 5px;">Kirimkan foto struk belanja Anda dengan <i>caption</i> <b>"catat struk"</b></code>
 </div>
 """, unsafe_allow_html=True)
 
