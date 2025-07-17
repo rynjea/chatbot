@@ -251,16 +251,24 @@ st.markdown("""
 # Langkah 3
 st.markdown("""
 <div class="step-card">
-    <span class="step-number-circle">3</span> <span class="step-title">Catat Pengeluaran</span>
-    <code style="display: block; margin-top: 15px; margin-bottom: 5px;">beli makan siang 30000</code>
-    <code style="display: block; margin-top: 10px; margin-bottom: 5px;">kirimkan foto struk belanja dengan <i>caption</i> <b>"catat struk"</b></code>
+    <span class="step-number-circle">3</span> <span class="step-title">Petunjuk Penggunaan</span>
+    <code style="display: block; margin-top: 15px; margin-bottom: 5px;">bantuan</code>
 </div>
 """, unsafe_allow_html=True)
 
 # Langkah 4
 st.markdown("""
 <div class="step-card">
-    <span class="step-number-circle">4</span> <span class="step-title">Dapatkan Laporan</span>
+    <span class="step-number-circle">4</span> <span class="step-title">Catat Pengeluaran</span>
+    <code style="display: block; margin-top: 15px; margin-bottom: 5px;">beli makan siang</code>
+    <code style="display: block; margin-top: 10px; margin-bottom: 5px;">kirimkan foto struk belanja dengan <i>caption</i> <b>"catat struk"</code>
+</div>
+""", unsafe_allow_html=True)
+
+# Langkah 5
+st.markdown("""
+<div class="step-card">
+    <span class="step-number-circle">5</span> <span class="step-title">Dapatkan Laporan</span>
     <code style="display: block; margin-top: 15px; margin-bottom: 5px;">laporan harian</code>
     <code style="display: block; margin-top: 10px; margin-bottom: 5px;">laporan listrik</code>
 </div>
